@@ -6,6 +6,7 @@ var title = item.getField('title');
 result += " " + title + "\n";
 var new_title = title.replace(/\b([A-Z][a-z0-9]+|A)\b/g, function (x) { return x.toLowerCase(); });
 new_title = new_title.replace(/(^|\?\s*)[a-z]/, function (x) { return x.toUpperCase(); });
+new_title = new_title.replace(/([:\?|\:|\!]\s+)(.)/g, function(x) { return x.toUpperCase(); });
 result += "-> " + new_title + "\n\n";
 // // Do it at your own risk
  item.setField('title', new_title);
